@@ -1,1 +1,15 @@
-{}
+services:
+  - type: web
+    name: birdyracing
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /var/data
+    disk:
+      name: birdy-data
+      mountPath: /var/data
+      sizeGB: 1
