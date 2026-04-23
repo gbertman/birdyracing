@@ -617,15 +617,17 @@ export default function App() {
     }
   }, []);
 
+  const hasData = (obj) => obj && typeof obj === 'object' && Object.keys(obj).length > 0;
+
   // Load everything from server on mount
   useEffect(() => {
     const load = async () => {
       try {
         const [configData, runsData] = await Promise.all([api.getConfig(), api.getRuns()]);
-        setDefaults(configData.defaults || DEFAULT_DEFAULTS);
-        setMotors(configData.motors || DEFAULT_MOTORS);
-        setInventory(configData.inventory || DEFAULT_INVENTORY);
-        setRuns(runsData || []);
+        setDefaults(hasData(configData.defaults) ? configData.defaults : DEFAULT_DEFAULTS);
+        setMotors(hasData(configData.motors) ? configData.motors : DEFAULT_MOTORS);
+        setInventory(hasData(configData.inventory) ? configData.inventory : DEFAULT_INVENTORY);
+        setRuns(Array.isArray(runsData) ? runsData : []);
       } catch(e) {
         console.warn("Server unavailable, using defaults:", e.message);
         setDefaults(DEFAULT_DEFAULTS);
