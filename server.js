@@ -83,16 +83,18 @@ app.delete('/api/runs', (req, res) => {
 // GET all config (defaults + cars + motors + inventory)
 app.get('/api/config', (req, res) => {
     try {
-        const carsData = readJSON('cars.json', null);
-        const motors = readJSON('motors.json', null);
-        const inventory = readJSON('inventory.json', null);
-        const defaults = hasData(carsData) ? carsData.classMinimums : null;
-        const cars = hasData(carsData) ? Object.fromEntries(Object.entries(carsData).filter(([k]) => k !== 'classMinimums')) : null;
+        const carsData = readJSON('cars.json', {});
+        const motors = readJSON('motors.json', {});
+        const inventory = readJSON('inventory.json', {});
+        
+        // Extract classMinimums as defaults, and all other entries as cars
+        const { classMinimums, ...carRecords } = carsData;
+        
         res.json({
-            defaults: hasData(defaults) ? defaults : null,
-            cars: hasData(cars) ? cars : null,
-            motors: hasData(motors) ? motors : null,
-            inventory: hasData(inventory) ? inventory : null,
+            defaults: classMinimums || null,
+            cars: Object.keys(carRecords).length > 0 ? carRecords : null,
+            motors: Object.keys(motors).length > 0 ? motors : null,
+            inventory: Object.keys(inventory).length > 0 ? inventory : null,
         });
     } catch (e) {
         res.status(500).json({ error: e.message });
@@ -103,18 +105,30 @@ app.get('/api/config', (req, res) => {
 app.put('/api/config', (req, res) => {
     try {
         const { defaults, cars, motors, inventory } = req.body;
-        if (defaults) {
+        
+        if (defaults || cars) {
             const carsData = readJSON('cars.json', {});
-            carsData.classMinimums = defaults;
+            
+            // Update classMinimums if provided
+            if (defaults) {
+                carsData.classMinimums = defaults;
+            }
+            
+            // Update car records if provided, ensuring classMinimums is never overwritten
+            if (cars) {
+                const { classMinimums: _, ...existingCars } = carsData;
+                Object.assign(carsData, cars);
+                // Restore classMinimums in case it was accidentally included
+                if (defaults) carsData.classMinimums = defaults;
+                else if (_) carsData.classMinimums = _;
+            }
+            
             writeJSON('cars.json', carsData);
         }
-        if (cars) {
-            const carsData = readJSON('cars.json', {});
-            Object.assign(carsData, cars);
-            writeJSON('cars.json', carsData);
-        }
+        
         if (motors) writeJSON('motors.json', motors);
         if (inventory) writeJSON('inventory.json', inventory);
+        
         res.json({ ok: true });
     } catch (e) {
         res.status(500).json({ error: e.message });
@@ -127,12 +141,14 @@ app.put('/api/config', (req, res) => {
 app.get('/api/export', (req, res) => {
     try {
         const carsData = readJSON('cars.json', {});
+        const { classMinimums, ...carRecords } = carsData;
+        
         res.json({
             version: 1,
             exported: new Date().toISOString(),
             runs: readJSON('runs.json', []),
-            defaults: carsData.classMinimums,
-            cars: Object.fromEntries(Object.entries(carsData).filter(([k]) => k !== 'classMinimums')),
+            defaults: classMinimums || null,
+            cars: carRecords,
             motors: readJSON('motors.json', {}),
             inventory: readJSON('inventory.json', {}),
         });
