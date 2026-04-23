@@ -80,11 +80,11 @@ const DEFAULT_CARS_DATA = {
     TT02: { minRH: null, minWeight: null }
   },
   cars: {
-    "CRC CK25":     {class:"GT12",chassis:"CRC CK25",    motor:"R1 V21-S 21.5",           esc:"XR10 Pro 1S Stock",     battery:"1S LiPo — max 4.20v",          timing:"44",     pinion:"49",rollout:"97",   frontRH:"4.0",rearRH:"3.6",droop:"1.5",  camberF:"",    camberR:"",    toeF:"",      toeR:"",     tires:"Gravity GT12 44.5mm",     tireAdditive:"SXT 3.0",changes:"None",notes:"Start droop at 1.5. Reduce as grip builds."},
-    "Xray X12":     {class:"LMP", chassis:"Xray X12",    motor:"R1 V21-S 17.5 + V30 rtr", esc:"Orca Totem 1S",         battery:"1S LiPo — max 4.20v",          timing:"44",     pinion:"47",rollout:"93",   frontRH:"4.0",rearRH:"3.6",droop:"1.5",  camberF:"",    camberR:"",    toeF:"",      toeR:"",     tires:"Ulti Blue F42/R42mm",     tireAdditive:"SXT 3.0",changes:"None",notes:"ADD droop as grip builds. Do not swap rotors."},
-    "Team Qik 123": {class:"GT12",chassis:"Team Qik 123",motor:"R1 V21-S 21.5",           esc:"XR10 Pro 1S Stock",     battery:"1S LiPo — max 4.20v",          timing:"44",     pinion:"49",rollout:"97",   frontRH:"4.0",rearRH:"3.6",droop:"1.4",  camberF:"",    camberR:"",    toeF:"",      toeR:"",     tires:"Gravity GT12 44.5mm",     tireAdditive:"SXT 3.0",changes:"None",notes:"Neutral reference — all motor testing done here."},
-    "Team Qik 112": {class:"GT12",chassis:"Team Qik 112",motor:"Hobbywing G4R 21.5",      esc:"XR10 Pro 1S Stock",     battery:"1S LiPo — max 4.20v",          timing:"41",     pinion:"49",rollout:"97",   frontRH:"4.0",rearRH:"3.7",droop:"1.5",  camberF:"",    camberR:"",    toeF:"",      toeR:"",     tires:"Gravity GT12 44.5mm",     tireAdditive:"SXT 3.0",changes:"None",notes:"G4R timing pending analyzer data."},
-    "Xray X4 (VTA)":{class:"VTA", chassis:"Xray X4",     motor:"Orca Team 25.5T",          esc:"XR10 Pro G3X (blinky)",battery:"2S LiPo — max 8.40v/6000mAh",  timing:"Factory",pinion:"28",rollout:"—",   frontRH:"5.0",rearRH:"5.0",droop:"TBD",  camberF:"-2.0",camberR:"-2.0",toeF:"1° out",toeR:"2.5° in",tires:"Gravity VTA",             tireAdditive:"SXT 3.0",changes:"None",notes:"Min RH 5mm / Min weight 1400g. Factory tuned motor — DO NOT adjust timing.",springF:"2.6 (XRAY)",springR:"2.7 (XRAY)",shockOilF:"350 cSt",shockOilR:"350 cSt",reboundF:"10%",reboundR:"10%",frontDiff:"Solid axle",rearDiff:"9K cSt",arbF:"1.3mm",arbR:"1.2mm",shockLength:"7mm",spurGear:"110T",totalWeight:"1322g",weightBalance:"50/50",body:"Twister",wing:"Speciale"},
+    "CRC CK25":     {class:"GT12",chassis:"CRC CK25",    motor:"R1 V21-S 21.5",           esc:"XR10 Pro 1S Stock",     battery:"1S LiPo — max 4.20v",          timing:"44",     pinion:"49",rollout:"97",   spurGear:"110",tireDiameter:"44.5", frontRH:"4.0",rearRH:"3.6",droop:"1.5",  camberF:"",    camberR:"",    toeF:"",      toeR:"",     tires:"Gravity GT12 44.5mm",     tireAdditive:"SXT 3.0",changes:"None",notes:"Start droop at 1.5. Reduce as grip builds."},
+    "Xray X12":     {class:"LMP", chassis:"Xray X12",    motor:"R1 V21-S 17.5 + V30 rtr", esc:"Orca Totem 1S",         battery:"1S LiPo — max 4.20v",          timing:"44",     pinion:"47",rollout:"93",   spurGear:"110",tireDiameter:"42", frontRH:"4.0",rearRH:"3.6",droop:"1.5",  camberF:"",    camberR:"",    toeF:"",      toeR:"",     tires:"Ulti Blue F42/R42mm",     tireAdditive:"SXT 3.0",changes:"None",notes:"ADD droop as grip builds. Do not swap rotors."},
+    "Team Qik 123": {class:"GT12",chassis:"Team Qik 123",motor:"R1 V21-S 21.5",           esc:"XR10 Pro 1S Stock",     battery:"1S LiPo — max 4.20v",          timing:"44",     pinion:"49",rollout:"97",   spurGear:"110",tireDiameter:"44.5", frontRH:"4.0",rearRH:"3.6",droop:"1.4",  camberF:"",    camberR:"",    toeF:"",      toeR:"",     tires:"Gravity GT12 44.5mm",     tireAdditive:"SXT 3.0",changes:"None",notes:"Neutral reference — all motor testing done here."},
+    "Team Qik 112": {class:"GT12",chassis:"Team Qik 112",motor:"Hobbywing G4R 21.5",      esc:"XR10 Pro 1S Stock",     battery:"1S LiPo — max 4.20v",          timing:"41",     pinion:"49",rollout:"97",   spurGear:"110",tireDiameter:"44.5", frontRH:"4.0",rearRH:"3.7",droop:"1.5",  camberF:"",    camberR:"",    toeF:"",      toeR:"",     tires:"Gravity GT12 44.5mm",     tireAdditive:"SXT 3.0",changes:"None",notes:"G4R timing pending analyzer data."},
+    "Xray X4 (VTA)":{class:"VTA", chassis:"Xray X4",     motor:"Orca Team 25.5T",          esc:"XR10 Pro G3X (blinky)",battery:"2S LiPo — max 8.40v/6000mAh",  timing:"Factory",pinion:"28",rollout:"—",   spurGear:"110T",tireDiameter:"58",frontRH:"5.0",rearRH:"5.0",droop:"TBD",  camberF:"-2.0",camberR:"-2.0",toeF:"1° out",toeR:"2.5° in",tires:"Gravity VTA",             tireAdditive:"SXT 3.0",changes:"None",notes:"Min RH 5mm / Min weight 1400g. Factory tuned motor — DO NOT adjust timing.",springF:"2.6 (XRAY)",springR:"2.7 (XRAY)",shockOilF:"350 cSt",shockOilR:"350 cSt",reboundF:"10%",reboundR:"10%",frontDiff:"Solid axle",rearDiff:"9K cSt",arbF:"1.3mm",arbR:"1.2mm",shockLength:"7mm",spurGear:"110T",totalWeight:"1322g",weightBalance:"50/50",body:"Twister",wing:"Speciale"},
     "Tamiya TT02":  {class:"TT02",chassis:"Tamiya TT-02",motor:"Stock Tamiya 540 Brushed", esc:"Stock Tamiya TBLE-04S",battery:"2S NiMH or LiPo",               timing:"Fixed",  pinion:"24",rollout:"Stock",frontRH:"5.0",rearRH:"5.0",droop:"Stock",camberF:"",    camberR:"",    toeF:"",      toeR:"",     tires:"USGT Rubber",             tireAdditive:"SXT 3.0",changes:"None",notes:"24T or 25T pinion only per Race Place rules."}
   }
 };
@@ -120,6 +120,23 @@ const downloadJSON = (name, obj) => {
   a.download = name;
   a.click();
 };
+
+const parseGearValue = (value) => {
+  if (typeof value === 'number') return value;
+  if (!value) return NaN;
+  const parsed = parseFloat(String(value).replace(/[^0-9.-]+/g, ''));
+  return Number.isFinite(parsed) ? parsed : NaN;
+};
+
+const calculateRollout = ({ tireDiameter, spurGear, pinion }) => {
+  const diameter = parseGearValue(tireDiameter);
+  const spur = parseGearValue(spurGear);
+  const pin = parseGearValue(pinion);
+  if (!diameter || !spur || !pin) return null;
+  return Math.round((diameter * Math.PI / spur) * pin);
+};
+
+const formatRollout = (value) => value == null ? '—' : `${value}`;
 
 const tempInfo = t => { const n=parseFloat(t); if(!t||isNaN(n))return null; if(n<150)return{cls:"success",lbl:"OK"}; if(n<165)return{cls:"warning",lbl:"WARM"}; return{cls:"danger",lbl:"HOT"}; };
 const CC = { GT12:"#f5c400", LMP:"#0d6efd", VTA:"#198754", TT02:"#6f42c1" };
@@ -361,11 +378,19 @@ function CarsPage({defaults,cars}) {
   const clsColor = CC[car.class]||"#6c757d";
   const isPan = !["VTA","TT02"].includes(car.class);
   const isVTA = car.class==="VTA";
-  const specRows=[["TIMING",car.timing,true],["PINION",car.pinion,true],...(isPan?[["ROLLOUT",car.rollout,true]]:isVTA?[["SPUR",car.spurGear,false]]:[]),["BATTERY",car.battery,false],["FRONT RH",car.frontRH,true],["REAR RH",car.rearRH,true],["DROOP",car.droop,true],["TIRES",car.tires,false],["MOTOR",car.motor,false],["ESC",car.esc,false],...(car.camberF?[["CAMBER F/R",`${car.camberF} / ${car.camberR}`,true]]:[]),...(car.toeF?[["TOE F/R",`${car.toeF} / ${car.toeR}`,true]]:[])];
+  const carRollout = calculateRollout(car);
+  const specRows=[["TIMING",car.timing,true],["PINION",car.pinion,true],...(car.spurGear?[["SPUR",car.spurGear,false]]:[]),...(isPan?[["ROLLOUT",formatRollout(carRollout),true]]:[]),["BATTERY",car.battery,false],["FRONT RH",car.frontRH,true],["REAR RH",car.rearRH,true],["DROOP",car.droop,true],["TIRES",car.tires,false],["MOTOR",car.motor,false],["ESC",car.esc,false],...(car.camberF?[["CAMBER F/R",`${car.camberF} / ${car.camberR}`,true]]:[]),...(car.toeF?[["TOE F/R",`${car.toeF} / ${car.toeR}`,true]]:[])];
   const vtaRows=isVTA?[["SPRING F",car.springF,true],["SPRING R",car.springR,true],["SHOCK OIL F",car.shockOilF,false],["SHOCK OIL R",car.shockOilR,false],["REBOUND F",car.reboundF,false],["REBOUND R",car.reboundR,false],["ARB FRONT",car.arbF,true],["ARB REAR",car.arbR,true],["SHOCK LEN",car.shockLength,false],["FRONT DIFF",car.frontDiff,false],["REAR DIFF",car.rearDiff,true],["WEIGHT",car.totalWeight,false],["BALANCE",car.weightBalance,false],["BODY",car.body,false],["WING",car.wing,false]].filter(([,v])=>v):[];
-  const TABLES={gt12:{label:"GT12 — 44.5mm",baseline:49,data:[[45,89],[46,91],[47,93],[48,95],[49,97],[50,99],[51,101],[52,103],[53,105]]},lmp:{label:"LMP — 42mm",baseline:47,data:[[45,84],[46,86],[47,88],[48,90],[49,92],[50,94],[51,96],[52,98],[53,100]]}};
+  const defaultDiameters = { gt12: 44.5, lmp: 42 };
+  const pinionOptions = [45,46,47,48,49,50,51,52,53];
   const [rollMode,setRollMode]=useState("gt12");
-  const rd=TABLES[rollMode];
+  useEffect(() => { setRollMode(car.class === 'LMP' ? 'lmp' : 'gt12'); }, [car.class]);
+  const rollTire = car.tireDiameter || defaultDiameters[rollMode];
+  const rollSpur = car.spurGear || '110';
+  const rollBaseline = parseGearValue(car.pinion) || (rollMode === 'lmp' ? 47 : 49);
+  const rolloutData = pinionOptions.map((pinion) => [pinion, calculateRollout({ tireDiameter: rollTire, spurGear: rollSpur, pinion })]);
+  const rd = { label: `${rollMode === 'lmp' ? 'LMP' : 'GT12'} — ${rollTire}mm`, baseline: rollBaseline, data: rolloutData };
+
   return (
     <div>
       <div className="d-flex gap-1 mb-3 flex-wrap">{Object.keys(carData).map(n=><CarBtn key={n} name={n} car={carData[n]} active={active===n} onClick={()=>setActive(n)}/>)}</div>
@@ -503,7 +528,8 @@ function RunLogPage({runs, defaults, cars, onSaveRun, onDeleteRun, onClearRuns})
   const pickCar=name=>{
     const d=carData[name];
     if(!d){up("car",name);return;}
-    setForm(f=>({...f,car:name,classType:d.class||f.classType,motor:d.motor||"",esc:d.esc||"",battery:d.battery||"",timing:d.timing||"",pinion:d.pinion||"",rollout:d.rollout||"",frontRH:d.frontRH||"",rearRH:d.rearRH||"",droop:d.droop||"",camberF:d.camberF||"",camberR:d.camberR||"",toeF:d.toeF||"",toeR:d.toeR||"",tireAdditive:d.tireAdditive||"SXT 3.0",changes:d.changes||"None"}));
+    const rolloutValue = calculateRollout(d);
+    setForm(f=>({...f,car:name,classType:d.class||f.classType,motor:d.motor||"",esc:d.esc||"",battery:d.battery||"",timing:d.timing||"",pinion:d.pinion||"",rollout:rolloutValue!=null?`${rolloutValue}`:(d.rollout||""),frontRH:d.frontRH||"",rearRH:d.rearRH||"",droop:d.droop||"",camberF:d.camberF||"",camberR:d.camberR||"",toeF:d.toeF||"",toeR:d.toeR||"",tireAdditive:d.tireAdditive||"SXT 3.0",changes:d.changes||"None"}));
   };
 
   const handleSave = async () => {
