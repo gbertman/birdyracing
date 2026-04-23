@@ -80,14 +80,17 @@ app.delete('/api/runs', (req, res) => {
 
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 
-// GET all config (defaults + motors + inventory)
+// GET all config (defaults + cars + motors + inventory)
 app.get('/api/config', (req, res) => {
     try {
-        const defaults = readJSON('defaults.json', null);
+        const carsData = readJSON('cars.json', null);
         const motors = readJSON('motors.json', null);
         const inventory = readJSON('inventory.json', null);
+        const defaults = hasData(carsData) ? carsData.classMinimums : null;
+        const cars = hasData(carsData) ? Object.fromEntries(Object.entries(carsData).filter(([k]) => k !== 'classMinimums')) : null;
         res.json({
             defaults: hasData(defaults) ? defaults : null,
+            cars: hasData(cars) ? cars : null,
             motors: hasData(motors) ? motors : null,
             inventory: hasData(inventory) ? inventory : null,
         });
@@ -99,8 +102,17 @@ app.get('/api/config', (req, res) => {
 // PUT config — partial update, send only what changed
 app.put('/api/config', (req, res) => {
     try {
-        const { defaults, motors, inventory } = req.body;
-        if (defaults) writeJSON('defaults.json', defaults);
+        const { defaults, cars, motors, inventory } = req.body;
+        if (defaults) {
+            const carsData = readJSON('cars.json', {});
+            carsData.classMinimums = defaults;
+            writeJSON('cars.json', carsData);
+        }
+        if (cars) {
+            const carsData = readJSON('cars.json', {});
+            Object.assign(carsData, cars);
+            writeJSON('cars.json', carsData);
+        }
         if (motors) writeJSON('motors.json', motors);
         if (inventory) writeJSON('inventory.json', inventory);
         res.json({ ok: true });
@@ -114,11 +126,13 @@ app.put('/api/config', (req, res) => {
 // GET full data export bundle
 app.get('/api/export', (req, res) => {
     try {
+        const carsData = readJSON('cars.json', {});
         res.json({
             version: 1,
             exported: new Date().toISOString(),
             runs: readJSON('runs.json', []),
-            defaults: readJSON('defaults.json', {}),
+            defaults: carsData.classMinimums,
+            cars: Object.fromEntries(Object.entries(carsData).filter(([k]) => k !== 'classMinimums')),
             motors: readJSON('motors.json', {}),
             inventory: readJSON('inventory.json', {}),
         });

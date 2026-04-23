@@ -72,17 +72,25 @@ const DEFAULT_MOTORS = {
   }
 };
 
-const DEFAULT_DEFAULTS = {
-  classMinimums:{GT12:{minRH:"3mm",minWeight:"730g"},LMP:{minRH:"3mm",minWeight:"730g"},VTA:{minRH:"5mm",minWeight:"1400g"},TT02:{minRH:null,minWeight:null}},
-  cars:{
+const DEFAULT_CARS_DATA = {
+  classMinimums: {
+    GT12: { minRH: "3mm", minWeight: "730g" },
+    LMP: { minRH: "3mm", minWeight: "730g" },
+    VTA: { minRH: "5mm", minWeight: "1400g" },
+    TT02: { minRH: null, minWeight: null }
+  },
+  cars: {
     "CRC CK25":     {class:"GT12",chassis:"CRC CK25",    motor:"R1 V21-S 21.5",           esc:"XR10 Pro 1S Stock",     battery:"1S LiPo — max 4.20v",          timing:"44",     pinion:"49",rollout:"97",   frontRH:"4.0",rearRH:"3.6",droop:"1.5",  camberF:"",    camberR:"",    toeF:"",      toeR:"",     tires:"Gravity GT12 44.5mm",     tireAdditive:"SXT 3.0",changes:"None",notes:"Start droop at 1.5. Reduce as grip builds."},
     "Xray X12":     {class:"LMP", chassis:"Xray X12",    motor:"R1 V21-S 17.5 + V30 rtr", esc:"Orca Totem 1S",         battery:"1S LiPo — max 4.20v",          timing:"44",     pinion:"47",rollout:"93",   frontRH:"4.0",rearRH:"3.6",droop:"1.5",  camberF:"",    camberR:"",    toeF:"",      toeR:"",     tires:"Ulti Blue F42/R42mm",     tireAdditive:"SXT 3.0",changes:"None",notes:"ADD droop as grip builds. Do not swap rotors."},
     "Team Qik 123": {class:"GT12",chassis:"Team Qik 123",motor:"R1 V21-S 21.5",           esc:"XR10 Pro 1S Stock",     battery:"1S LiPo — max 4.20v",          timing:"44",     pinion:"49",rollout:"97",   frontRH:"4.0",rearRH:"3.6",droop:"1.4",  camberF:"",    camberR:"",    toeF:"",      toeR:"",     tires:"Gravity GT12 44.5mm",     tireAdditive:"SXT 3.0",changes:"None",notes:"Neutral reference — all motor testing done here."},
     "Team Qik 112": {class:"GT12",chassis:"Team Qik 112",motor:"Hobbywing G4R 21.5",      esc:"XR10 Pro 1S Stock",     battery:"1S LiPo — max 4.20v",          timing:"41",     pinion:"49",rollout:"97",   frontRH:"4.0",rearRH:"3.7",droop:"1.5",  camberF:"",    camberR:"",    toeF:"",      toeR:"",     tires:"Gravity GT12 44.5mm",     tireAdditive:"SXT 3.0",changes:"None",notes:"G4R timing pending analyzer data."},
     "Xray X4 (VTA)":{class:"VTA", chassis:"Xray X4",     motor:"Orca Team 25.5T",          esc:"XR10 Pro G3X (blinky)",battery:"2S LiPo — max 8.40v/6000mAh",  timing:"Factory",pinion:"28",rollout:"—",   frontRH:"5.0",rearRH:"5.0",droop:"TBD",  camberF:"-2.0",camberR:"-2.0",toeF:"1° out",toeR:"2.5° in",tires:"Gravity VTA",             tireAdditive:"SXT 3.0",changes:"None",notes:"Min RH 5mm / Min weight 1400g. Factory tuned motor — DO NOT adjust timing.",springF:"2.6 (XRAY)",springR:"2.7 (XRAY)",shockOilF:"350 cSt",shockOilR:"350 cSt",reboundF:"10%",reboundR:"10%",frontDiff:"Solid axle",rearDiff:"9K cSt",arbF:"1.3mm",arbR:"1.2mm",shockLength:"7mm",spurGear:"110T",totalWeight:"1322g",weightBalance:"50/50",body:"Twister",wing:"Speciale"},
-    "Tamiya TT02":  {class:"TT02",chassis:"Tamiya TT-02",motor:"Stock Tamiya 540 Brushed", esc:"Stock Tamiya TBLE-04S",battery:"2S NiMH or LiPo",               timing:"Fixed",  pinion:"24",rollout:"Stock",frontRH:"5.0",rearRH:"5.0",droop:"Stock",camberF:"",    camberR:"",    toeF:"",      toeR:"",     tires:"USGT Rubber",             tireAdditive:"SXT 3.0",changes:"None",notes:"24T or 25T pinion only per Race Place rules."},
+    "Tamiya TT02":  {class:"TT02",chassis:"Tamiya TT-02",motor:"Stock Tamiya 540 Brushed", esc:"Stock Tamiya TBLE-04S",battery:"2S NiMH or LiPo",               timing:"Fixed",  pinion:"24",rollout:"Stock",frontRH:"5.0",rearRH:"5.0",droop:"Stock",camberF:"",    camberR:"",    toeF:"",      toeR:"",     tires:"USGT Rubber",             tireAdditive:"SXT 3.0",changes:"None",notes:"24T or 25T pinion only per Race Place rules."}
   }
 };
+
+const DEFAULT_DEFAULTS = DEFAULT_CARS_DATA.classMinimums;
+const DEFAULT_CARS = DEFAULT_CARS_DATA.cars;
 
 const DEFAULT_INVENTORY = {
   Cars:{GT12:["CRC CK25 — primary GT12","Team Qik 112 — second GT12","Team Qik 123 — test/backup"],LMP:["Xray X12 — primary LMP","Team Qik 123 — test/backup"],VTA:["Xray X4 — VTA touring (Orca factory tuned)"],TT02:["Tamiya TT-02 — USGT stock"]},
@@ -345,11 +353,11 @@ function MotorsPage({motors}) {
 }
 
 // ─── CARS PAGE ────────────────────────────────────────────────────────────────
-function CarsPage({defaults}) {
+function CarsPage({defaults,cars}) {
   const [active,setActive]=useState("CRC CK25");
   const defs = defaults || DEFAULT_DEFAULTS;
-  const cars = defs.cars;
-  const car = cars[active]||{};
+  const carData = cars || DEFAULT_CARS;
+  const car = carData[active]||{};
   const clsColor = CC[car.class]||"#6c757d";
   const isPan = !["VTA","TT02"].includes(car.class);
   const isVTA = car.class==="VTA";
@@ -360,7 +368,7 @@ function CarsPage({defaults}) {
   const rd=TABLES[rollMode];
   return (
     <div>
-      <div className="d-flex gap-1 mb-3 flex-wrap">{Object.keys(cars).map(n=><CarBtn key={n} name={n} car={cars[n]} active={active===n} onClick={()=>setActive(n)}/>)}</div>
+      <div className="d-flex gap-1 mb-3 flex-wrap">{Object.keys(carData).map(n=><CarBtn key={n} name={n} car={carData[n]} active={active===n} onClick={()=>setActive(n)}/>)}</div>
       {car.notes&&<div className="alert alert-warning py-2 mb-2" style={{fontSize:12}}>{car.notes}</div>}
       <MinBadges cls={car.class} defs={defs}/>
       <div className="rc-card mt-2 mb-3" style={{borderTop:`4px solid ${clsColor}`,overflow:"hidden"}}>
@@ -398,9 +406,10 @@ function GearPage({inventory, motors}) {
 }
 
 // ─── DATA PAGE ────────────────────────────────────────────────────────────────
-function DataPage({defaults, motors, inventory, onSaveConfig, syncState}) {
+function DataPage({defaults, cars, motors, inventory, onSaveConfig, syncState}) {
   const [which,setWhich]=useState("defs");
   const [defsJson,setDefsJson]=useState(()=>JSON.stringify(defaults||DEFAULT_DEFAULTS,null,2));
+  const [carsJson,setCarsJson]=useState(()=>JSON.stringify(cars||DEFAULT_CARS,null,2));
   const [invJson,setInvJson]=useState(()=>JSON.stringify(inventory||DEFAULT_INVENTORY,null,2));
   const [motorsJson,setMotorsJson]=useState(()=>JSON.stringify(motors||DEFAULT_MOTORS,null,2));
   const [msg,setMsg]=useState(null);
@@ -429,19 +438,28 @@ function DataPage({defaults, motors, inventory, onSaveConfig, syncState}) {
     <div>
       {msg&&<div className={`alert alert-${msg.type} py-2 mb-3`} style={{fontSize:12}}>{msg.text}</div>}
       <div className="d-flex gap-1 mb-2">
-        {[{id:"defs",label:"DEFAULTS"},{id:"inv",label:"INVENTORY"},{id:"motors",label:"MOTORS"}].map(t=>(
+        {[{id:"defs",label:"DEFAULTS"},{id:"cars",label:"CARS"},{id:"inv",label:"INVENTORY"},{id:"motors",label:"MOTORS"}].map(t=>(
           <button key={t.id} className={`btn btn-sm flex-grow-1 ${which===t.id?"btn-warning":"btn-outline-secondary"}`} style={{fontFamily:"DM Mono,monospace"}} onClick={()=>setWhich(t.id)}>{t.label}</button>
         ))}
       </div>
       <button className="btn btn-outline-primary btn-sm w-100 mb-3" onClick={exportAll}>↓ EXPORT FULL BACKUP</button>
 
       {which==="defs"&&<>
-        <div className="alert alert-info py-2 mb-2" style={{fontSize:11}}>Car defaults — auto-fill Run Log on car selection. Saved to server.</div>
+        <div className="alert alert-info py-2 mb-2" style={{fontSize:11}}>Class minimums — used by Cars and Run Log pages. Saved to server.</div>
         <textarea className="form-control json-ta mb-2" rows={22} value={defsJson} onChange={e=>setDefsJson(e.target.value)}/>
         <div className="d-flex gap-2">
           <button className="btn btn-warning btn-sm flex-grow-1" onClick={()=>save("defaults",defsJson,"Defaults")}>SAVE TO SERVER</button>
           <button className="btn btn-outline-secondary btn-sm" onClick={()=>{try{downloadJSON("defaults.json",JSON.parse(defsJson))}catch{flash("Fix JSON","danger")}}}>↓</button>
           <button className="btn btn-outline-secondary btn-sm" onClick={()=>{setDefsJson(JSON.stringify(DEFAULT_DEFAULTS,null,2));flash("Reset (save to apply)","warning");}}>RESET</button>
+        </div>
+      </>}
+      {which==="cars"&&<>
+        <div className="alert alert-info py-2 mb-2" style={{fontSize:11}}>Car definitions — drives the Cars page and Run Log auto-fill. Saved to server.</div>
+        <textarea className="form-control json-ta mb-2" rows={22} value={carsJson} onChange={e=>setCarsJson(e.target.value)}/>
+        <div className="d-flex gap-2">
+          <button className="btn btn-warning btn-sm flex-grow-1" onClick={()=>save("cars",carsJson,"Cars")}>SAVE TO SERVER</button>
+          <button className="btn btn-outline-secondary btn-sm" onClick={()=>{try{downloadJSON("cars.json",JSON.parse(carsJson))}catch{flash("Fix JSON","danger")}}}>↓</button>
+          <button className="btn btn-outline-secondary btn-sm" onClick={()=>{setCarsJson(JSON.stringify(DEFAULT_CARS,null,2));flash("Reset (save to apply)","warning");}}>RESET</button>
         </div>
       </>}
       {which==="inv"&&<>
@@ -469,13 +487,13 @@ function DataPage({defaults, motors, inventory, onSaveConfig, syncState}) {
 // ─── RUN LOG PAGE ─────────────────────────────────────────────────────────────
 const BLANK_FORM = {date:new Date().toISOString().split("T")[0],track:"Race Place RC",car:"",classType:"",motor:"",esc:"",battery:"",timing:"",pinion:"",rollout:"",temp:"",frontRH:"",rearRH:"",droop:"",camberF:"",camberR:"",toeF:"",toeR:"",bestLap:"",avgLap:"",feel:"",grip:"",result:"",tireAdditive:"SXT 3.0",changes:"None",notes:""};
 
-function RunLogPage({runs, defaults, onSaveRun, onDeleteRun, onClearRuns}) {
+function RunLogPage({runs, defaults, cars, onSaveRun, onDeleteRun, onClearRuns}) {
   const [form,setForm]=useState({...BLANK_FORM});
   const [view,setView]=useState("new");
   const [saving,setSaving]=useState(false);
   const fileRef=useRef();
   const defs = defaults || DEFAULT_DEFAULTS;
-  const cars = defs.cars;
+  const carData = cars || DEFAULT_CARS;
   const up=(k,v)=>setForm(f=>({...f,[k]:v}));
   const isTouring=["VTA","TT02"].includes(form.classType);
   const isVTA=form.classType==="VTA";
@@ -483,7 +501,7 @@ function RunLogPage({runs, defaults, onSaveRun, onDeleteRun, onClearRuns}) {
   const mins=defs?.classMinimums?.[form.classType];
 
   const pickCar=name=>{
-    const d=cars[name];
+    const d=carData[name];
     if(!d){up("car",name);return;}
     setForm(f=>({...f,car:name,classType:d.class||f.classType,motor:d.motor||"",esc:d.esc||"",battery:d.battery||"",timing:d.timing||"",pinion:d.pinion||"",rollout:d.rollout||"",frontRH:d.frontRH||"",rearRH:d.rearRH||"",droop:d.droop||"",camberF:d.camberF||"",camberR:d.camberR||"",toeF:d.toeF||"",toeR:d.toeR||"",tireAdditive:d.tireAdditive||"SXT 3.0",changes:d.changes||"None"}));
   };
@@ -605,6 +623,7 @@ export default function App() {
   const [syncState, setSyncState] = useState("ok"); // ok | busy | err
   const [runs, setRuns]         = useState([]);
   const [defaults, setDefaults] = useState(null);
+  const [cars, setCars]         = useState(null);
   const [motors, setMotors]     = useState(null);
   const [inventory, setInventory] = useState(null);
 
@@ -625,12 +644,14 @@ export default function App() {
       try {
         const [configData, runsData] = await Promise.all([api.getConfig(), api.getRuns()]);
         setDefaults(hasData(configData.defaults) ? configData.defaults : DEFAULT_DEFAULTS);
+        setCars(hasData(configData.cars) ? configData.cars : DEFAULT_CARS);
         setMotors(hasData(configData.motors) ? configData.motors : DEFAULT_MOTORS);
         setInventory(hasData(configData.inventory) ? configData.inventory : DEFAULT_INVENTORY);
         setRuns(Array.isArray(runsData) ? runsData : []);
       } catch(e) {
         console.warn("Server unavailable, using defaults:", e.message);
         setDefaults(DEFAULT_DEFAULTS);
+        setCars(DEFAULT_CARS);
         setMotors(DEFAULT_MOTORS);
         setInventory(DEFAULT_INVENTORY);
         setSyncState("err");
@@ -679,6 +700,7 @@ export default function App() {
       // Refresh config from server
       const updated = await api.getConfig();
       if (updated.defaults)  setDefaults(updated.defaults);
+      if (updated.cars)      setCars(updated.cars);
       if (updated.motors)    setMotors(updated.motors);
       if (updated.inventory) setInventory(updated.inventory);
       setSyncState("ok");
@@ -719,10 +741,10 @@ export default function App() {
         {tab==="quick"  && <QuickPage/>}
         {tab==="theory" && <TheoryPage/>}
         {tab==="motors" && <MotorsPage motors={motors}/>}
-        {tab==="cars"   && <CarsPage defaults={defaults}/>}
+        {tab==="cars"   && <CarsPage defaults={defaults} cars={cars}/>}
         {tab==="gear"   && <GearPage inventory={inventory} motors={motors}/>}
-        {tab==="data"   && <DataPage defaults={defaults} motors={motors} inventory={inventory} onSaveConfig={handleSaveConfig} syncState={syncState}/>}
-        {tab==="log"    && <RunLogPage runs={runs} defaults={defaults} onSaveRun={handleSaveRun} onDeleteRun={handleDeleteRun} onClearRuns={handleClearRuns}/>}
+        {tab==="data"   && <DataPage defaults={defaults} cars={cars} motors={motors} inventory={inventory} onSaveConfig={handleSaveConfig} syncState={syncState}/>}
+        {tab==="log"    && <RunLogPage runs={runs} defaults={defaults} cars={cars} onSaveRun={handleSaveRun} onDeleteRun={handleDeleteRun} onClearRuns={handleClearRuns}/>}
       </div>
 
       <nav className="app-tabbar">
