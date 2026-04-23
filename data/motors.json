@@ -1,1 +1,449 @@
-{}
+{
+  "_comment": "Motor analyzer data. Cross-referenced with inventory. Edit here or via app DATA tab.",
+  "motors": {
+    "R1 V21-S 21.5": {
+      "tier": "primary",
+      "classes": [
+        "GT12",
+        "LMP"
+      ],
+      "inInventory": true,
+      "factoryTuned": false,
+      "raceSet": 44,
+      "raceKV": 2580,
+      "raceRPM": "20,383",
+      "raceAmps": "2.2",
+      "note": "PRIMARY GT12 MOTOR. Most efficient \u2014 lowest amps at equivalent KV. Everything compared to this baseline.",
+      "analyzerData": [
+        {
+          "deg": 30,
+          "kv": 2427,
+          "rpm": "19,179",
+          "amps": 1.5,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 34,
+          "kv": 2468,
+          "rpm": "19,505",
+          "amps": 1.5,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 36,
+          "kv": 2487,
+          "rpm": "19,648",
+          "amps": 1.7,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 39,
+          "kv": 2488,
+          "rpm": "19,660",
+          "amps": 1.8,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 40,
+          "kv": 2517,
+          "rpm": "19,972",
+          "amps": 1.9,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 41,
+          "kv": 2531,
+          "rpm": "19,745",
+          "amps": 2.0,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 43,
+          "kv": 2555,
+          "rpm": "19,929",
+          "amps": 2.0,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 44,
+          "kv": 2580,
+          "rpm": "20,383",
+          "amps": 2.2,
+          "best": true,
+          "danger": false
+        },
+        {
+          "deg": 49,
+          "kv": 2798,
+          "rpm": "21,825",
+          "amps": 3.0,
+          "best": false,
+          "danger": true
+        }
+      ]
+    },
+    "Fleta ZX V2": {
+      "tier": "test",
+      "classes": [
+        "GT12"
+      ],
+      "inInventory": true,
+      "factoryTuned": false,
+      "raceSet": 34,
+      "raceKV": 2645,
+      "raceRPM": "21,110",
+      "raceAmps": "2.3",
+      "note": "TEST/BACKUP ONLY \u2014 ROAR compliance unconfirmed. Do not race at Race Place until verified. Highest KV tested.",
+      "analyzerData": [
+        {
+          "deg": 24,
+          "kv": 2508,
+          "rpm": "20,075",
+          "amps": 1.6,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 26,
+          "kv": 2543,
+          "rpm": "20,736",
+          "amps": 1.7,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 29,
+          "kv": 2595,
+          "rpm": "20,777",
+          "amps": 1.9,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 30,
+          "kv": 2596,
+          "rpm": "20,772",
+          "amps": 1.9,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 31,
+          "kv": 2601,
+          "rpm": "20,815",
+          "amps": 2.0,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 32,
+          "kv": 2610,
+          "rpm": "20,890",
+          "amps": 2.1,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 34,
+          "kv": 2645,
+          "rpm": "21,110",
+          "amps": 2.3,
+          "best": true,
+          "danger": false
+        },
+        {
+          "deg": 36,
+          "kv": 2645,
+          "rpm": "21,160",
+          "amps": 2.5,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 38,
+          "kv": 2682,
+          "rpm": "21,461",
+          "amps": 2.7,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 46,
+          "kv": 3355,
+          "rpm": "26,185",
+          "amps": 5.9,
+          "best": false,
+          "danger": true
+        }
+      ]
+    },
+    "R1 V30 21.5": {
+      "tier": "backup",
+      "classes": [
+        "GT12"
+      ],
+      "inInventory": true,
+      "factoryTuned": false,
+      "raceSet": 33,
+      "raceKV": 2464,
+      "raceRPM": "19,685",
+      "raceAmps": "2.7",
+      "note": "LAST RESORT \u2014 designed for 2S. On 1S draws 0.5A more than V21-S for 116 less KV. Do NOT run 41-42 degrees.",
+      "analyzerData": [
+        {
+          "deg": 31,
+          "kv": 2416,
+          "rpm": "18,606",
+          "amps": 2.5,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 33,
+          "kv": 2464,
+          "rpm": "19,685",
+          "amps": 2.7,
+          "best": true,
+          "danger": false
+        },
+        {
+          "deg": 35,
+          "kv": 2482,
+          "rpm": "19,862",
+          "amps": 3.1,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 37,
+          "kv": 2492,
+          "rpm": "19,940",
+          "amps": 3.4,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 40,
+          "kv": 2510,
+          "rpm": "20,087",
+          "amps": 3.9,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 41,
+          "kv": 2551,
+          "rpm": "20,155",
+          "amps": 4.3,
+          "best": false,
+          "danger": true
+        },
+        {
+          "deg": 42,
+          "kv": 2571,
+          "rpm": "20,313",
+          "amps": 4.6,
+          "best": false,
+          "danger": true
+        },
+        {
+          "deg": 44,
+          "kv": 2618,
+          "rpm": "20,683",
+          "amps": 5.0,
+          "best": false,
+          "danger": true
+        },
+        {
+          "deg": 45,
+          "kv": 2657,
+          "rpm": "21,263",
+          "amps": 6.0,
+          "best": false,
+          "danger": true
+        }
+      ]
+    },
+    "Hobbywing G4R 21.5": {
+      "tier": "nodata",
+      "classes": [
+        "GT12"
+      ],
+      "inInventory": true,
+      "factoryTuned": false,
+      "raceSet": 41,
+      "raceKV": null,
+      "raceRPM": null,
+      "raceAmps": null,
+      "note": "No analyzer data yet. 41-42 degrees listed but UNVERIFIED. Run SkyRC analyzer before racing.",
+      "analyzerData": []
+    },
+    "Orca Team 25.5T": {
+      "tier": "vta",
+      "classes": [
+        "VTA"
+      ],
+      "inInventory": true,
+      "factoryTuned": true,
+      "raceSet": null,
+      "raceKV": null,
+      "raceRPM": null,
+      "raceAmps": null,
+      "note": "Factory tuned and sealed \u2014 DO NOT adjust timing. ROAR compliant (verified, purchased Race Place). Monitor temp only. Target under 155F.",
+      "analyzerData": []
+    },
+    "R1 V30 17.5": {
+      "tier": "backup",
+      "classes": [
+        "LMP"
+      ],
+      "inInventory": true,
+      "factoryTuned": false,
+      "raceSet": 33,
+      "raceKV": null,
+      "raceRPM": null,
+      "raceAmps": null,
+      "note": "LMP BACKUP / LAST RESORT. Currently installed in Xray X12 \u2014 SWAP OUT before racing. Same efficiency concerns as V30 21.5. Start at 33 degrees if tested. Run analyzer before any race use.",
+      "analyzerData": []
+    },
+    "Blitreme 21.5": {
+      "tier": "nodata",
+      "classes": [
+        "GT12"
+      ],
+      "inInventory": true,
+      "incoming": true,
+      "factoryTuned": false,
+      "raceSet": null,
+      "raceKV": null,
+      "raceRPM": null,
+      "raceAmps": null,
+      "note": "Incoming. Full analyzer sweep on arrival in Qik123. Compare vs V21-S baseline. Verify ROAR compliance before racing.",
+      "analyzerData": []
+    },
+    "Blitreme 17.5": {
+      "tier": "nodata",
+      "classes": [
+        "LMP"
+      ],
+      "inInventory": true,
+      "incoming": true,
+      "factoryTuned": false,
+      "raceSet": null,
+      "raceKV": null,
+      "raceRPM": null,
+      "raceAmps": null,
+      "note": "Incoming. Full analyzer sweep on arrival. Compare vs V21 17.5 baseline at 38 degrees.",
+      "analyzerData": []
+    },
+    "Actinium": {
+      "tier": "nodata",
+      "classes": [
+        "Testing"
+      ],
+      "inInventory": true,
+      "factoryTuned": false,
+      "raceSet": null,
+      "raceKV": null,
+      "raceRPM": null,
+      "raceAmps": null,
+      "note": "Testing motor \u2014 no data yet.",
+      "analyzerData": []
+    },
+    "R1 V21 17.5 (original rotor)": {
+      "tier": "primary",
+      "classes": [
+        "LMP"
+      ],
+      "inInventory": true,
+      "factoryTuned": false,
+      "raceSet": 38,
+      "raceKV": 3087,
+      "raceRPM": "25,012",
+      "raceAmps": "2.4",
+      "note": "LMP PRIMARY. R1 V21 (not V21-S) with original factory rotor. Race setting 38 degrees confirmed by analyzer. Efficiency cliff at 41+ degrees \u2014 do not run 44 degrees (costs 0.7A for 80 KV). Monitor rotor: if KV drops below 2995 at 38 degrees on retest, rotor is tired and needs replacement.",
+      "rotorNote": "Original factory rotor \u2014 NOT V30 rotor. Do not swap. Baseline: 3087 KV at 38 degrees. Retest periodically \u2014 drop of 3 percent or more signals rotor demagnetization.",
+      "analyzerData": [
+        {
+          "deg": 21,
+          "kv": 2778,
+          "rpm": "22,783",
+          "amps": 1.2,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 30,
+          "kv": 2909,
+          "rpm": "23,854",
+          "amps": 1.7,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 32,
+          "kv": 2940,
+          "rpm": "24,116",
+          "amps": 1.8,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 33,
+          "kv": 2953,
+          "rpm": "24,220",
+          "amps": 1.9,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 35,
+          "kv": 3000,
+          "rpm": "24,606",
+          "amps": 2.1,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 38,
+          "kv": 3087,
+          "rpm": "25,012",
+          "amps": 2.4,
+          "best": true,
+          "danger": false
+        },
+        {
+          "deg": 41,
+          "kv": 3118,
+          "rpm": "25,256",
+          "amps": 2.6,
+          "best": false,
+          "danger": false
+        },
+        {
+          "deg": 44,
+          "kv": 3198,
+          "rpm": "25,904",
+          "amps": 3.3,
+          "best": false,
+          "danger": true
+        },
+        {
+          "deg": 46,
+          "kv": 3341,
+          "rpm": "27,063",
+          "amps": 4.0,
+          "best": false,
+          "danger": true
+        }
+      ]
+    }
+  }
+}

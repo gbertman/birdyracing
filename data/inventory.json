@@ -1,1 +1,60 @@
-{}
+{
+  "_comment": "Full gear inventory. Edit here or via app DATA tab.",
+  "Cars": {
+    "GT12": [
+      "CRC CK25 \u2014 primary GT12 race car",
+      "Team Qik 112 \u2014 second GT12",
+      "Team Qik 123 \u2014 test/backup platform"
+    ],
+    "LMP": [
+      "Xray X12 \u2014 primary LMP (currently has V30 17.5 installed \u2014 swap to V21 17.5 before racing)",
+      "Team Qik 123 \u2014 test/backup platform"
+    ],
+    "VTA": [
+      "Xray X4 \u2014 VTA touring (Orca 25.5T factory tuned, ROAR confirmed)"
+    ],
+    "TT02": [
+      "Tamiya TT-02 \u2014 USGT stock class"
+    ]
+  },
+  "ESCs": [
+    "XR10 Pro 1S Stock x3",
+    "XR10 Pro 1S HD x1",
+    "XR10 Pro 1S 120A x1",
+    "XeRun V3.1 x1",
+    "XR10 Pro G3X (VTA) x1",
+    "Orca Totem 1S x1"
+  ],
+  "GT12 Motors (21.5T)": [
+    "R1 V21-S 21.5 \u2014 PRIMARY (44 deg, data confirmed)",
+    "R1 V30 21.5 \u2014 last resort (33 deg, data confirmed)",
+    "Hobbywing G4R 21.5 \u2014 no data (run analyzer before racing)",
+    "Fleta ZX V2 \u2014 test/backup (34 deg, ROAR unconfirmed)",
+    "Blitreme 21.5 (incoming)"
+  ],
+  "LMP Motors (17.5T)": [
+    "R1 V21 17.5 (original rotor) \u2014 PRIMARY LMP (38 deg, data confirmed) \u2014 install in X12",
+    "R1 V30 17.5 \u2014 LAST RESORT (currently in X12 \u2014 SWAP OUT before racing, no data)",
+    "Blitreme 17.5 (incoming)"
+  ],
+  "VTA Motors (25.5T)": [
+    "Orca Team 25.5T \u2014 factory tuned, ROAR confirmed (DO NOT adjust timing)"
+  ],
+  "Other": [
+    "Actinium \u2014 testing, no data"
+  ],
+  "Tires": [
+    "Gravity GT12 Rubber (GT12 \u2014 44.5mm)",
+    "Ulti Blue Stripe (LMP \u2014 42mm)",
+    "Gravity VTA (VTA \u2014 Race Place accepted)",
+    "USGT Rubber (TT02)"
+  ],
+  "Tools": [
+    "SkyRC Motor Analyzer",
+    "Setup board / flat surface",
+    "Ride height gauges",
+    "MyLaps transponder",
+    "Xray droop gauge #107730 (front VTA)",
+    "Xray droop gauge #107712 (rear VTA)"
+  ]
+}
