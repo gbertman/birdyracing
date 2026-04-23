@@ -86,10 +86,10 @@ app.get('/api/config', (req, res) => {
         const carsData = readJSON('cars.json', {});
         const motors = readJSON('motors.json', {});
         const inventory = readJSON('inventory.json', {});
-        
+
         // Extract classMinimums as defaults, and all other entries as cars
         const { classMinimums, ...carRecords } = carsData;
-        
+
         res.json({
             defaults: classMinimums || null,
             cars: Object.keys(carRecords).length > 0 ? carRecords : null,
@@ -105,15 +105,15 @@ app.get('/api/config', (req, res) => {
 app.put('/api/config', (req, res) => {
     try {
         const { defaults, cars, motors, inventory } = req.body;
-        
+
         if (defaults || cars) {
             const carsData = readJSON('cars.json', {});
-            
+
             // Update classMinimums if provided
             if (defaults) {
                 carsData.classMinimums = defaults;
             }
-            
+
             // Update car records if provided, ensuring classMinimums is never overwritten
             if (cars) {
                 const { classMinimums: _, ...existingCars } = carsData;
@@ -122,13 +122,13 @@ app.put('/api/config', (req, res) => {
                 if (defaults) carsData.classMinimums = defaults;
                 else if (_) carsData.classMinimums = _;
             }
-            
+
             writeJSON('cars.json', carsData);
         }
-        
+
         if (motors) writeJSON('motors.json', motors);
         if (inventory) writeJSON('inventory.json', inventory);
-        
+
         res.json({ ok: true });
     } catch (e) {
         res.status(500).json({ error: e.message });
@@ -142,7 +142,7 @@ app.get('/api/export', (req, res) => {
     try {
         const carsData = readJSON('cars.json', {});
         const { classMinimums, ...carRecords } = carsData;
-        
+
         res.json({
             version: 1,
             exported: new Date().toISOString(),
